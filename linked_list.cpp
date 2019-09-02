@@ -41,8 +41,8 @@ void createnode(int value)
 	}
 	else
 	{
-		tail->next = temp;		//¸¶Áö¸·ÀÇ ´ÙÀ½Àº »õ·Î¿î temp°¡µÇ°í
-		tail = temp;			//²¿¸®°¡ temp°¡ µÊ
+		tail->next = temp;		//ë§ˆì§€ë§‰ì˜ ë‹¤ìŒì€ ìƒˆë¡œìš´ tempê°€ë˜ê³ 
+		tail = temp;			//ê¼¬ë¦¬ê°€ tempê°€ ë¨
 	}
 }
 
@@ -71,7 +71,15 @@ void insert_position(int pos, int value)
 	node *cur = new node;
 	node *temp = new node;
 	cur = head;
-
+	
+	for (int i = 0; i < pos; i++)
+		{
+			prev = head ;
+			cur = cur->next;
+		}
+		temp->data = value;
+		prev->next = temp;
+		temp->next = cur;
 }
 
 void delete_first()
@@ -109,6 +117,7 @@ void delete_position(int pos)
 		previous = current;
 		current = current->next;
 	}
+	prev->next = cur->next;
 	
 }
 
